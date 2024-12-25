@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Selamat Tahun Baru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #ff5722;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: explode 2s ease-out forwards;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(8);
+                opacity: 0;
+            }
+        }
+        @keyframes shoot {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selamat Tahun Baru 2025 Zaraaa!</h1>
+        <p>Semoga tahun baru ini membawa kebahagiaan, kesehatan, dan Whislist kamuu tercapaaii smuaaa.</p>
+        <button onclick="showGreeting()">Klik untuk Ucapan Spesial</button>
+        <footer>&copy; 2025 by [Ferdinan]</footer>
+    </div>
+    <div class="fireworks" id="fireworks"></div>
+
+    <script>
+        function showGreeting() {
+            alert("Selamat Tahun Baru Zaraaa! Semoga whislist kamu tercapaaiiii.");
+            createFireworks();
+        }
+
+        function createFireworks() {
+            const fireworksContainer = document.getElementById('fireworks');
+            for (let i = 0; i < 50; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = `${Math.random() * 100}%`;
+                firework.style.top = `${Math.random() * 100}%`;
+                firework.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                firework.style.animation = `shoot 0.5s ease-out, explode 2s ease-out forwards`;
+                fireworksContainer.appendChild(firework);
+                setTimeout(() => firework.remove(), 2000);
+            }
+        }
+    </script>
+</body>
+</html>
